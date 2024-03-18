@@ -1,7 +1,7 @@
 "use client";
-import { useState } from "react"; // No need for useEffect here if not used
+import { useState } from "react"; 
 import Link from "next/link";
-import { useUserAuth } from "./auth-context"; // Assuming this is the correct path
+import { useUserAuth } from "./auth-context"; 
 
 export default function Page() {
   const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();
@@ -16,24 +16,25 @@ export default function Page() {
   };
 
   return (
-    <div className="container mx-auto my-8 p-4">
-      {user ? (
-        <>
-          <p className="text-lg font-semibold mb-4">Welcome to weather dashboard {user.displayName}!</p>
-          {/* TODO: Render a button that links to the weather page. Use the Next.js Link component. */}
-          <Link href="/weather">
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out">View Weather</button>
-          </Link>
-          {/* TODO: Render a Sign Out button that calls handleSignOut when clicked */}
-          <button onClick={handleSignOut} className="ml-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out">Sign Out</button>
-        </>
-      ) : (
-        <>
-          <p>Please sign in to access the weather information.</p>
-          {/* TODO: Render a Sign In button that calls handleSignIn when clicked */}
-          <button onClick={handleSignIn} className="bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out">Sign In with GitHub</button>
-        </>
-      )}
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-gray-100 to-gray-200">
+      <div className="bg-white rounded-lg shadow-lg p-8">
+        {user ? (
+          <>
+            <h2 className="text-2xl font-bold text-gray-800 mb-8">Welcome to the weather dashboard, {user.displayName}!</h2>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link href="/weather">
+                <button className="inline-flex items-center justify-center px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md text-sm leading-tight uppercase shadow-md transition duration-150 ease-in-out">View Weather</button>
+              </Link>
+              <button onClick={handleSignOut} className="inline-flex items-center justify-center px-5 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-md text-sm leading-tight uppercase shadow-md transition duration-150 ease-in-out">Sign Out</button>
+            </div>
+          </>
+        ) : (
+          <div className="text-center">
+            <p className="text-lg text-gray-800 mb-6">Please sign in to access the weather information.</p>
+            <button onClick={handleSignIn} className="px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md text-sm leading-tight uppercase shadow-md transition duration-150 ease-in-out">Sign In with GitHub</button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

@@ -57,6 +57,12 @@ export default function Weather() {
                 <p className="text-lg"><span className="font-bold">Max Precipitation Probability:</span> {weather.daily.precipitation_probability_max[0]}%</p>
               </div>
             )}
+
+            <Link href="/">
+              <button className="mt-4 inline-block bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-6 rounded-full transition duration-300 ease-in-out">
+                Home
+              </button>
+            </Link>
             
           </>
         ) : (
