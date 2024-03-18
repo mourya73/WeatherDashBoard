@@ -38,7 +38,7 @@ To get started with this project, clone the repo to your local machine and insta
 
 Create a `.env.local` file in the root directory and add the following environment variables:
     
-    ```env
+    ```
     NEXT_PUBLIC_FIREBASE_API_KEY=your-firebase-api-key
     NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your-firebase-auth-domain
     NEXT_PUBLIC_FIREBASE_PROJECT_ID=your-firebase-project-id
@@ -52,7 +52,7 @@ Replace `your-firebase-...` with your actual Firebase configuration values.
 
 To run the application in development mode, execute:
     
-    ```bash
+    ```
     npm run dev
     ```
 The application will be available at `http://localhost:3000`.
